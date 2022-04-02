@@ -1,4 +1,4 @@
-# Sveltekit으로 Svelte 공부
+# Learn Svelte with Sveltekit
 
 해당 프로젝트는 다음의 링크를 통해 만들어졌습니다. [`create-svelte`](https://github.com/sveltejs/kit/tree/master/packages/create-svelte).
 
