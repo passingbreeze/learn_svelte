@@ -1,40 +1,71 @@
-# Learn Svelte with Sveltekit
 
-해당 프로젝트는 다음의 링크를 통해 만들어졌습니다. [`create-svelte`](https://github.com/sveltejs/kit/tree/master/packages/create-svelte).
+# svelte를 공부해봅니다. Let's begin to learn Svelte
 
-## Sveltekit으로 프로젝트 만들기
+### svelte Template으로 만들어졌습니다. 다음과 같이 만들 수 있습니다.
 
 ```bash
-# 현재 작업중인 디렉토리에서 프로젝트 생성
-npm init svelte@next
-
-# my-app 디렉토리에서 프로젝트 생성
-npm init svelte@next my-app
+npx degit sveltejs/template [만들고자 하는 디렉토리명]
+cd [만든 디렉토리명]
 ```
 
-> Note: `@next` 는 임시 버전입니다. 현재 베타버전으로 계속 업데이트됩니다.
+### [Node.js](https://nodejs.org)가 설치되어 있어야 합니다.
+- Note that you will need to have [Node.js](https://nodejs.org) installed.
 
-## Developing
 
-프로젝트 생성후 반드시 `npm install` (or `pnpm install` or `yarn`)를 입력합니다.
+## Get started
 
-개발용 서버를 아래와 같이 실행합니다.
+Install the dependencies...
+
+```bash
+cd svelte-app
+npm install
+```
+
+...then start [Rollup](https://rollupjs.org):
 
 ```bash
 npm run dev
-
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
 ```
 
-## Building
+Navigate to [localhost:8080](http://localhost:8080). You should see your app running. Edit a component file in `src`, save it, and reload the page to see your changes.
 
-To create a production version of your app:
+By default, the server will only respond to requests from localhost. To allow connections from other computers, edit the `sirv` commands in package.json to include the option `--host 0.0.0.0`.
+
+If you're using [Visual Studio Code](https://code.visualstudio.com/) we recommend installing the official extension [Svelte for VS Code](https://marketplace.visualstudio.com/items?itemName=svelte.svelte-vscode). If you are using other editors you may need to install a plugin in order to get syntax highlighting and intellisense.
+
+## Building and running in production mode
+
+To create an optimised version of the app:
 
 ```bash
 npm run build
 ```
 
-`npm run preview` 로 빌드 결과물을 미리 볼 수 있습니다.
+You can run the newly built app with `npm run start`. This uses [sirv](https://github.com/lukeed/sirv), which is included in your package.json's `dependencies` so that the app will work when you deploy to platforms like [Heroku](https://heroku.com).
 
-> [adapter](https://kit.svelte.dev/docs/adapters)로 배포 환경 설정이 가능합니다.
+
+## Single-page app mode
+
+By default, sirv will only respond to requests that match files in `public`. This is to maximise compatibility with static fileservers, allowing you to deploy your app anywhere.
+
+If you're building a single-page app (SPA) with multiple routes, sirv needs to be able to respond to requests for *any* path. You can make it so by editing the `"start"` command in package.json:
+
+```js
+"start": "sirv public --single"
+```
+
+## Using TypeScript
+
+This template comes with a script to set up a TypeScript development environment, you can run it immediately after cloning the template with:
+
+```bash
+node scripts/setupTypeScript.js
+```
+
+Or remove the script via:
+
+```bash
+rm scripts/setupTypeScript.js
+```
+
+If you want to use `baseUrl` or `path` aliases within your `tsconfig`, you need to set up `@rollup/plugin-alias` to tell Rollup to resolve the aliases. For more info, see [this StackOverflow question](https://stackoverflow.com/questions/63427935/setup-tsconfig-path-in-svelte).
